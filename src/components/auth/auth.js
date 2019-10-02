@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LoginContext } from './context';
 
-import If from '../if';
+import If from '../util/if';
 
 class Auth extends React.Component {
   static contextType = LoginContext;
