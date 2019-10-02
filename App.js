@@ -1,12 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import {
-  StyleSheet, Text, View, Button,
+  StyleSheet, View, Button, TextInput,
 } from 'react-native';
 
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  screen: {
+    padding: 40,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -14,17 +14,34 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-  const [outputText, setOutputText] = useState('Open up App.js to start working on your app!');
+  const [usernameText, setusernameText] = useState('');
+  // const [passwordText, setpasswordText] = useState('');
+
+  const handleUsernameInput = (enteredText) => {
+    setusernameText(enteredText);
+  };
+
+  const handleSigninSubmit = () => {
+    // console.log(usernameText, passwordText);
+  };
+
   return (
-    <View style={styles.container}>
-      <View>
+    <View style={styles.screen}>
+      <View >
+
+        <TextInput
+          placeholder='Username'
+          onChangeText={handleUsernameInput}
+          value={usernameText}
+        />
+        <TextInput placeholder='Password' />
+        <Button
+          title='Sign In'
+          onPress={handleSigninSubmit}
+        />
 
       </View>
-      <View>
-
-      </View>
-      <Text>{outputText}</Text>
-      <Button title='Change Text' onPress={() => setOutputText('The updated text!')} />
     </View>
+
   );
 }
