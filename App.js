@@ -1,12 +1,21 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import {
-  StyleSheet, Text, View, Button, TextInput,
+  StyleSheet, View, Button, TextInput,
 } from 'react-native';
+
+const styles = StyleSheet.create({
+  screen: {
+    padding: 40,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default function App() {
   const [usernameText, setusernameText] = useState('');
-  const [passwordText, setpasswordText] = useState('');
+  // const [passwordText, setpasswordText] = useState('');
 
   const handleUsernameInput = (enteredText) => {
     setusernameText(enteredText);
@@ -36,12 +45,3 @@ export default function App() {
 
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    padding: 40,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
