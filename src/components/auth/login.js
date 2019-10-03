@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoginContext } from './context';
 
-import If from '../auth/if';
+import If from '../util/if';
 
 class Login extends React.Component {
   static contextType = LoginContext;
