@@ -1,11 +1,7 @@
-node_modules/**/*
-.expo/*
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-web-report/
+# Node React gitignore
+
+node_modules/
+npm-debug.log*
+.npm
+.env
+.idea/
