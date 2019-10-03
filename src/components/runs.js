@@ -4,10 +4,21 @@ import { connect } from 'react-redux';
 
 import runsActions from '../store/actions/runs';
 
+/**
+ *
+ *
+ * @param {*} props
+ * @returns
+ */
 const Runs = (props) => {
   const [runDate, setRunDate] = useState('');
   const [runDistance, setRunDistance] = useState('');
 
+  /**
+   *
+   *
+   * @param {*} e
+   */
   function handleSubmit(e) {
     e.preventDefault();
     props.addRuns({ day: runDate, distance: runDistance });

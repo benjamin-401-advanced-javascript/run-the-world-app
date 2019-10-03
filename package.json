@@ -8,7 +8,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test2": "jest --watchAll --verbose --coverages",
-    "lint": "eslint ./src --ext .js,.jsx --fix"
+    "lint": "eslint ./src --ext .js,.jsx --fix",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-react": "^7.15.1",
     "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
     "react-test-renderer": "^16.10.1",
     "redux-devtools-extension": "^2.13.8"
   },

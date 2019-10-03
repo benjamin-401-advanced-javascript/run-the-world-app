@@ -3,23 +3,50 @@ import { LoginContext } from './context';
 
 import If from '../util/if';
 
+/**
+ *
+ *
+ * @class Login
+ * @extends {React.Component}
+ */
 class Login extends React.Component {
   static contextType = LoginContext;
 
+  /**
+   *Creates an instance of Login.
+   * @param {*} props
+   * @memberof Login
+   */
   constructor(props) {
     super(props);
     this.state = { username: '', password: '' };
   }
 
+  /**
+   *
+   *
+   * @memberof Login
+   */
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  /**
+   *
+   *
+   * @memberof Login
+   */
   handleSubmit = (e, type) => {
     e.preventDefault();
     this.context.login(this.state.username, this.state.password, type);
   };
 
+  /**
+   *
+   *
+   * @returns
+   * @memberof Login
+   */
   render() {
     return (
       <>

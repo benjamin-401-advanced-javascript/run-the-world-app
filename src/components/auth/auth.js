@@ -4,9 +4,21 @@ import { LoginContext } from './context';
 
 import If from '../util/if';
 
+/**
+ *
+ *
+ * @class Auth
+ * @extends {React.Component}
+ */
 class Auth extends React.Component {
   static contextType = LoginContext;
 
+  /**
+   *
+   *
+   * @returns
+   * @memberof Auth
+   */
   render() {
     let okToRender = false;
 
