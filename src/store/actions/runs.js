@@ -1,45 +1,45 @@
+
 const API = process.env.REACT_APP_API;
 
 
-// action creator for fetch
 const get = (payload) => {
   return {
-    type: 'FETCH_TODOS',
+    type: 'FETCH_RUNS',
     payload,
   };
 };
 
 const add = (payload) => {
   return {
-    type: 'ADD_TODOS',
+    type: 'ADD_RUNS',
     payload,
   };
 };
 
-// Thunk for handle asyc fetch
-const fetchTodos = () => (dispatch) => {
-  return fetch(`${API}/api/v1/todo`)
+// THUNK
+const fetchRuns = () => (dispatch) => {
+  return fetch(`${API}/api/v1/run`)
     .then((results) => results.json())
     .then((data) => dispatch(get(data)));
 };
 
-const addTodos = (todo) => (dispatch) => {
+const addRuns = (run) => (dispatch) => {
   const options = {
     method: 'POST',
-    body: JSON.stringify(todo),
+    body: JSON.stringify(run),
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
   };
 
-  return fetch(`${API}/api/v1/todo`, options)
+  return fetch(`${API}/api/v1/run`, options)
     .then((results) => results.json())
     .then((data) => dispatch(add(data)));
 };
 
 
 export default {
-  fetchTodos,
-  addTodos,
+  fetchRuns,
+  addRuns,
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken';
+import PropTypes from 'prop-types';
 
 const API = process.env.REACT_APP_API;
 
@@ -76,5 +77,9 @@ class LoginProvider extends React.Component {
     );
   }
 }
+
+LoginProvider.propTypes = {
+  children: PropTypes.array,
+};
 
 export default LoginProvider;

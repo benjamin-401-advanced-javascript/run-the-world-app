@@ -3,10 +3,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import thunk from './middleware/thunk';
 // import thunk from 'redux-thunk';
-import todos from './reducers/todos';
+import runs from './reducers/runs';
 
 const reducers = combineReducers({
-  todos,
+  runs,
 });
 
 const store = () => createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
