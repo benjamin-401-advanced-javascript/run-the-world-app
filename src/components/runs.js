@@ -55,7 +55,7 @@ const Runs = (props) => {
         {props.runs.map((run, idx) => (
           <li key={idx}> RUN INFO:
 
-          <button onClick={(e) => handleRunDelete(e, run._id)} >Delete Run Info</button>
+          <button onClick={(e) => handleRunDelete(e, run._id)} >Delete</button>
             <p>Day: {run.day}</p>
             <p>Distance: {run.distance}</p>
 

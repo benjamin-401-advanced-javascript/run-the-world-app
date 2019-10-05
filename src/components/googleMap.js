@@ -1,4 +1,4 @@
-import React, { createRef } from 'react'
+import React from 'react'
 
 const GOOGLE_MAP_API_KEY = 'AIzaSyBp-epXMW6aYyu6k1PoD5h9wj8S-lGnWok';
 

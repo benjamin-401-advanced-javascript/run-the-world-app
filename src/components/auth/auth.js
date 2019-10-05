@@ -40,7 +40,7 @@ class Auth extends React.Component {
 }
 
 Auth.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
   capability: PropTypes.string,
 };
 

@@ -49,11 +49,11 @@ const deleteRuns = (runId) => (dispatch) => {
   const options = {
     method: 'DELETE',
   };
-  
+
   return fetch(`${API}/api/v1/run/${runId}`, options)
     .then((results) => results.json())
     .then((data) => dispatch(remove(data)))
-    .catch((e) => console.log('ERROR:3C5BD', e));
+    .catch(console.log);
 };
 
 
