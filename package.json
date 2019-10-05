@@ -7,7 +7,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test2": "jest --watchAll --verbose --coverages",
+    "test2": "jest --watchAll --verbose --coverage",
     "lint": "eslint ./src --ext .js,.jsx --fix",
     "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },

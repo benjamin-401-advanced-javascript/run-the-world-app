@@ -24,6 +24,11 @@ const Runs = (props) => {
     props.addRuns({ day: runDate, distance: runDistance });
   }
 
+  function handleRunDelete(e, id) {
+    console.log('Run component delete', id);
+    props.deleteRuns(id);
+  }
+
   useEffect(() => {
     props.fetchRuns();
   }, []);
@@ -48,9 +53,12 @@ const Runs = (props) => {
 
       <ul>
         {props.runs.map((run, idx) => (
-          <li key={idx}>RUN INFO:
+          <li key={idx}> RUN INFO:
+
+          <button onClick={(e) => handleRunDelete(e, run._id)} >Delete Run Info</button>
             <p>Day: {run.day}</p>
             <p>Distance: {run.distance}</p>
+
           </li>
         ))}
       </ul>
@@ -63,11 +71,13 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  deleteRuns: (id) => dispatch(runsActions.deleteRuns(id)),
   fetchRuns: () => dispatch(runsActions.fetchRuns()),
   addRuns: (data) => dispatch(runsActions.addRuns(data)),
 });
 
 Runs.propTypes = {
+  deleteRuns: PropTypes.func,
   fetchRuns: PropTypes.func,
   addRuns: PropTypes.func,
   runs: PropTypes.array,

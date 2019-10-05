@@ -16,6 +16,13 @@ const add = (payload) => {
   };
 };
 
+const remove = (payload) => {
+  return {
+    type: 'DELETE_RUNS',
+    payload,
+  };
+};
+
 // THUNK
 const fetchRuns = () => (dispatch) => {
   return fetch(`${API}/api/v1/run`)
@@ -38,8 +45,20 @@ const addRuns = (run) => (dispatch) => {
     .then((data) => dispatch(add(data)));
 };
 
+const deleteRuns = (runId) => (dispatch) => {
+  const options = {
+    method: 'DELETE',
+  };
+  
+  return fetch(`${API}/api/v1/run/${runId}`, options)
+    .then((results) => results.json())
+    .then((data) => dispatch(remove(data)))
+    .catch((e) => console.log('ERROR:3C5BD', e));
+};
+
 
 export default {
   fetchRuns,
   addRuns,
+  deleteRuns,
 };
