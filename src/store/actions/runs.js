@@ -30,10 +30,10 @@ const fetchRuns = () => (dispatch) => {
     .then((data) => dispatch(get(data)));
 };
 
-const addRuns = (run) => (dispatch) => {
+const addRuns = (coords) => (dispatch) => {
   const options = {
     method: 'POST',
-    body: JSON.stringify(run),
+    body: JSON.stringify(coords),
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',

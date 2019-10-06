@@ -12,7 +12,6 @@ const App = () => {
       <Login />
       <Auth capability="read">
         <Runs />
-        <button onClick={ (e) => navigator.geolocation.getCurrentPosition(console.log) } > Delete </button>
         <GoogleMap />
       </Auth>
     </LoginProvider>

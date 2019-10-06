@@ -1,11 +1,11 @@
-export default (state = [], action) => {
-  switch (action.type) {
+export default (state = [], { type, payload }) => {
+  switch (type) {
     case 'FETCH_RUNS':
-      return action.payload;
+      return payload;
     case 'ADD_RUNS':
-      return [...state, action.payload];
+      return [...state, payload];
     case 'DELETE_RUNS':
-      return state.filter((run) => run._id !== action.payload);
+      return state.filter((run) => run._id !== payload);
     default:
       return state;
   }
