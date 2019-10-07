@@ -51,8 +51,7 @@ const deleteRuns = (runId) => (dispatch) => {
   };
 
   return fetch(`${API}/api/v1/run/${runId}`, options)
-    .then((results) => results.json())
-    .then((data) => dispatch(remove(data)))
+    .then(() => dispatch(remove(runId)))
     .catch(console.log);
 };
 
