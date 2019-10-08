@@ -13,11 +13,11 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'all',
+    featureType: 'all',
     elementType: 'labels',
     stylers: [
       {
-        'visibility': 'off',
+        visibility: 'off',
       },
       {
         saturation: '-100',
@@ -26,25 +26,25 @@ const googleMapStyle = [
   },
   {
     featureType: 'all',
-    'elementType': 'labels.text.fill',
+    elementType: 'labels.text.fill',
     stylers: [
       {
-        'saturation': 36,
+        saturation: 36,
       },
       {
-        'color': '#000000',
+        color: '#000000',
       },
       {
-        'lightness': 40,
+        lightness: 40,
       },
       {
-        'visibility': 'off',
+        visibility: 'off',
       },
     ],
   },
   {
     featureType: 'all',
-    'elementType': 'labels.text.stroke',
+    elementType: 'labels.text.stroke',
     stylers: [
       {
         visibility: 'off',
@@ -68,25 +68,25 @@ const googleMapStyle = [
   },
   {
     featureType: 'administrative',
-    'elementType': 'geometry.fill',
-    stylers: [
-      {
-        'color': '#000000',
-      },
-      {
-        'lightness': 20,
-      },
-    ],
-  },
-  {
-    'featureType': 'administrative',
-    'elementType': 'geometry.stroke',
+    elementType: 'geometry.fill',
     stylers: [
       {
         color: '#000000',
       },
       {
-        'lightness': 17,
+        lightness: 20,
+      },
+    ],
+  },
+  {
+    featureType: 'administrative',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#000000',
+      },
+      {
+        lightness: 17,
       },
       {
         weight: 1.2,
@@ -94,57 +94,57 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'landscape',
-    'elementType': 'geometry',
+    featureType: 'landscape',
+    elementType: 'geometry',
     stylers: [
       {
         color: '#000000',
       },
       {
-        'lightness': 20,
+        lightness: 20,
       },
     ],
   },
   {
     featureType: 'landscape',
-    'elementType': 'geometry.fill',
-    stylers: [
-      {
-        'color': '#4d6059',
-      },
-    ],
-  },
-  {
-    'featureType': 'landscape',
-    'elementType': 'geometry.stroke',
-    stylers: [
-      {
-        'color': '#4d6059',
-      },
-    ],
-  },
-  {
-    'featureType': 'landscape.natural',
     elementType: 'geometry.fill',
-    'stylers': [
+    stylers: [
       {
-        'color': '#4d6059',
+        color: '#4d6059',
+      },
+    ],
+  },
+  {
+    featureType: 'landscape',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#4d6059',
+      },
+    ],
+  },
+  {
+    featureType: 'landscape.natural',
+    elementType: 'geometry.fill',
+    stylers: [
+      {
+        color: '#4d6059',
       },
     ],
   },
   {
     featureType: 'poi',
-    'elementType': 'geometry',
-    'stylers': [
+    elementType: 'geometry',
+    stylers: [
       {
-        'lightness': 21,
+        lightness: 21,
       },
     ],
   },
   {
-    'featureType': 'poi',
+    featureType: 'poi',
     elementType: 'geometry.fill',
-    'stylers': [
+    stylers: [
       {
         color: '#4d6059',
       },
@@ -155,16 +155,16 @@ const googleMapStyle = [
     elementType: 'geometry.stroke',
     stylers: [
       {
-        'color': '#4d6059',
+        color: '#4d6059',
       },
     ],
   },
   {
     featureType: 'road',
-    'elementType': 'geometry',
+    elementType: 'geometry',
     stylers: [
       {
-        'visibility': 'on',
+        visibility: 'on',
       },
       {
         color: '#7f8d89',
@@ -172,8 +172,8 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'road',
-    'elementType': 'geometry.fill',
+    featureType: 'road',
+    elementType: 'geometry.fill',
     stylers: [
       {
         color: '#7f8d89',
@@ -182,8 +182,8 @@ const googleMapStyle = [
   },
   {
     featureType: 'road.highway',
-    'elementType': 'geometry.fill',
-    'stylers': [
+    elementType: 'geometry.fill',
+    stylers: [
       {
         color: '#7f8d89',
       },
@@ -200,37 +200,28 @@ const googleMapStyle = [
         color: '#7f8d89',
       },
       {
-        'lightness': 29,
+        lightness: 29,
       },
       {
-        'weight': 0.2,
+        weight: 0.2,
       },
     ],
   },
   {
-    'featureType': 'road.arterial',
+    featureType: 'road.arterial',
     elementType: 'geometry',
-    'stylers': [
+    stylers: [
       {
-        'color': '#000000',
+        color: '#000000',
       },
       {
-        'lightness': 18,
+        lightness: 18,
       },
     ],
   },
   {
-    'featureType': 'road.arterial',
+    featureType: 'road.arterial',
     elementType: 'geometry.fill',
-    'stylers': [
-      {
-        color: '#7f8d89',
-      },
-    ],
-  },
-  {
-    'featureType': 'road.arterial',
-    'elementType': 'geometry.stroke',
     stylers: [
       {
         color: '#7f8d89',
@@ -238,39 +229,48 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'road.local',
-    elementType: 'geometry',
+    featureType: 'road.arterial',
+    elementType: 'geometry.stroke',
     stylers: [
       {
-        'color': '#000000',
-      },
-      {
-        'lightness': 16,
+        color: '#7f8d89',
       },
     ],
   },
   {
     featureType: 'road.local',
-    'elementType': 'geometry.fill',
+    elementType: 'geometry',
     stylers: [
       {
-        'color': '#7f8d89',
+        color: '#000000',
+      },
+      {
+        lightness: 16,
       },
     ],
   },
   {
     featureType: 'road.local',
-    'elementType': 'geometry.stroke',
-    'stylers': [
+    elementType: 'geometry.fill',
+    stylers: [
       {
-        'color': '#7f8d89',
+        color: '#7f8d89',
       },
     ],
   },
   {
-    'featureType': 'transit',
+    featureType: 'road.local',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#7f8d89',
+      },
+    ],
+  },
+  {
+    featureType: 'transit',
     elementType: 'geometry',
-    'stylers': [
+    stylers: [
       {
         color: '#000000',
       },
@@ -284,7 +284,7 @@ const googleMapStyle = [
     elementType: 'all',
     stylers: [
       {
-        'color': '#2b3638',
+        color: '#2b3638',
       },
       {
         visibility: 'on',
@@ -293,10 +293,10 @@ const googleMapStyle = [
   },
   {
     featureType: 'water',
-    'elementType': 'geometry',
+    elementType: 'geometry',
     stylers: [
       {
-        'color': '#2b3638',
+        color: '#2b3638',
       },
       {
         lightness: 17,
@@ -304,17 +304,8 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'water',
-    'elementType': 'geometry.fill',
-    'stylers': [
-      {
-        'color': '#24282b',
-      },
-    ],
-  },
-  {
     featureType: 'water',
-    'elementType': 'geometry.stroke',
+    elementType: 'geometry.fill',
     stylers: [
       {
         color: '#24282b',
@@ -322,7 +313,16 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'water',
+    featureType: 'water',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#24282b',
+      },
+    ],
+  },
+  {
+    featureType: 'water',
     elementType: 'labels',
     stylers: [
       {
@@ -331,29 +331,29 @@ const googleMapStyle = [
     ],
   },
   {
-    'featureType': 'water',
+    featureType: 'water',
     elementType: 'labels.text',
     stylers: [
       {
-        'visibility': 'off',
+        visibility: 'off',
       },
     ],
   },
   {
     featureType: 'water',
     elementType: 'labels.text.fill',
-    'stylers': [
+    stylers: [
       {
-        'visibility': 'off',
+        visibility: 'off',
       },
     ],
   },
   {
     featureType: 'water',
     elementType: 'labels.text.stroke',
-    'stylers': [
+    stylers: [
       {
-        'visibility': 'off',
+        visibility: 'off',
       },
     ],
   },
@@ -388,14 +388,20 @@ class GoogleMap extends React.Component {
 
   componentDidMount() {
     const googleScript = document.createElement('script');
-    googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAP_API_KEY}&libraries=places`;
+    const key = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+    googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
     window.document.body.appendChild(googleScript);
 
     googleScript.addEventListener('load', () => {
       console.log('GOOGLE API LOADED');
       navigator.geolocation.getCurrentPosition((data) => {
         console.log('CURRENT POSITION RETRIEVED', data.coords);
-        this.setState({ currentPosition: { lat: data.coords.latitude, lng: data.coords.longitude } });
+        this.setState({
+          currentPosition: {
+            lat: data.coords.latitude,
+            lng: data.coords.longitude,
+          },
+        });
       });
       this.setupMap();
     });
@@ -405,7 +411,10 @@ class GoogleMap extends React.Component {
     if (prevState
       && (prevState.currentPosition !== this.state.currentPosition)) {
       console.log('CURRENT LOCATION UPDATED', this.googleMap);
-      this.googleMap.panTo({ lat: this.state.currentPosition.lat, lng: this.state.currentPosition.lng });
+      this.googleMap.panTo({
+        lat: this.state.currentPosition.lat,
+        lng: this.state.currentPosition.lng,
+      });
     }
   }
 

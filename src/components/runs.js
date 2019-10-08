@@ -12,7 +12,6 @@ import { LoginContext } from './auth/context';
  * @returns
  */
 const Runs = (props) => {
-
   const context = useContext(LoginContext);
 
   const [lat, setlat] = useState('');
@@ -101,7 +100,9 @@ const Runs = (props) => {
 
           <li key={idx}>
             <p>
-              <button onClick={() => setCoordinates(coordinates.filter((v, i) => i !== idx))} > X </button>
+              <button onClick={() => setCoordinates(coordinates.filter((v, i) => i !== idx))}>
+                X
+              </button>
               Lat: {coord.lat} Lng: {coord.lng}
             </p>
           </li>
