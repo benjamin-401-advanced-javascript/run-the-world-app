@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import LoginProvider from './components/auth/context';
+import Login from './components/auth/login';
+import Auth from './components/auth/auth';
+import Runs from './components/runs';
+import GoogleMap from './components/googleMap';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LoginProvider>
+      <Login />
+      <Auth capability="read">
+        <Runs />
+        <GoogleMap />
+      </Auth>
+    </LoginProvider>
   );
-}
+};
 
 export default App;

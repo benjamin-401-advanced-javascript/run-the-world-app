@@ -1,0 +1,10 @@
+**/node_modules/*
+**/vendor/*
+**/*.min.js
+**/coverage/*
+**/build/*
+**/expo/*
+**/expo-shared/*
+**/babel.config.js
+
+
