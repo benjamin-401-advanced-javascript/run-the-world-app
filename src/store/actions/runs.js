@@ -24,20 +24,28 @@ const remove = (payload) => {
 };
 
 // THUNK
-const fetchRuns = () => (dispatch) => {
-  return fetch(`${API}/api/v1/run`)
+const fetchRuns = (authToken) => (dispatch) => {
+  const options = {
+    method: 'GET',
+    headers: new Headers({
+      Authorization: `Bearer ${authToken}`,
+    }),
+  };
+
+  return fetch(`${API}/api/v1/run`, options)
     .then((results) => results.json())
     .then((data) => dispatch(get(data)));
 };
 
-const addRuns = (coords) => (dispatch) => {
+const addRuns = (coords, authToken) => (dispatch) => {
   const options = {
     method: 'POST',
     body: JSON.stringify(coords),
-    headers: {
+    headers: new Headers({
+      Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json',
       Accept: 'application/json',
-    },
+    }),
   };
 
   return fetch(`${API}/api/v1/run`, options)
@@ -45,9 +53,12 @@ const addRuns = (coords) => (dispatch) => {
     .then((data) => dispatch(add(data)));
 };
 
-const deleteRuns = (runId) => (dispatch) => {
+const deleteRuns = (runId, authToken) => (dispatch) => {
   const options = {
     method: 'DELETE',
+    headers: new Headers({
+      Authorization: `Bearer ${authToken}`,
+    }),
   };
 
   return fetch(`${API}/api/v1/run/${runId}`, options)

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import runsActions from '../store/actions/runs';
+import { LoginContext } from './auth/context';
 
 /**
  *
@@ -11,6 +12,9 @@ import runsActions from '../store/actions/runs';
  * @returns
  */
 const Runs = (props) => {
+
+  const context = useContext(LoginContext);
+
   const [lat, setlat] = useState('');
   const [lng, setlng] = useState('');
   const [coordinates, setCoordinates] = useState([]);
@@ -19,8 +23,10 @@ const Runs = (props) => {
 
 
   useEffect(() => {
-    props.fetchRuns();
-    navigator.geolocation.getCurrentPosition((data) => setCurrentLocation({ lat: data.coords.latitude, lng: data.coords.longitude }));
+    props.fetchRuns(context.token);
+    navigator.geolocation.getCurrentPosition((data) => {
+      setCurrentLocation({ lat: data.coords.latitude, lng: data.coords.longitude });
+    });
   }, []);
 
 
@@ -42,7 +48,7 @@ const Runs = (props) => {
 
   function handleLogRun(e) {
     e.preventDefault();
-    props.addRuns({ name: runName, coordinates });
+    props.addRuns({ name: runName, coordinates }, context.token);
   }
 
   return (
@@ -126,9 +132,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRuns: () => dispatch(runsActions.fetchRuns()),
-  addRuns: (data) => dispatch(runsActions.addRuns(data)),
-  deleteRuns: (id) => dispatch(runsActions.deleteRuns(id)),
+  fetchRuns: (authToken) => dispatch(runsActions.fetchRuns(authToken)),
+  addRuns: (data, authToken) => dispatch(runsActions.addRuns(data, authToken)),
+  deleteRuns: (id, authToken) => dispatch(runsActions.deleteRuns(id, authToken)),
 });
 
 Runs.propTypes = {
