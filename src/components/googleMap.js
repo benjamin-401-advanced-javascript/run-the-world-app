@@ -374,33 +374,49 @@ const testCoordinates = [
   { lat: 47.590, lng: -122.300 },
 ];
 
+const mapPolygonOptions = {
+  path: testCoordinates,
+  geodesic: true,
+  fillColor: '#FF0000',
+  fillOpacity: 0.5,
+  strokeColor: '#FF0000',
+  strokeOpacity: 1.0,
+  strokeWeight: 2,
+  map: {},
+};
+
 class GoogleMap extends React.Component {
   constructor(props) {
     super(props);
     this.googleMapRef = React.createRef();
     this.googleMap = {};
     this.marker = {};
-    this.polyline = {};
+    this.polygon = {};
     this.state = {
       currentPosition: { lat: 47.606209, lng: -122.332069 },
+      currentRunCoordinates: [],
+      currentMapPolygon: {},
     };
   }
 
   componentDidMount() {
+    // add google api to a script tag and append to DOM
     const googleScript = document.createElement('script');
     const key = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
     googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
     window.document.body.appendChild(googleScript);
 
+    // when google script finishes loading
     googleScript.addEventListener('load', () => {
-      console.log('GOOGLE API LOADED');
       navigator.geolocation.getCurrentPosition((data) => {
-        console.log('CURRENT POSITION RETRIEVED', data.coords);
         this.setState({
           currentPosition: {
             lat: data.coords.latitude,
             lng: data.coords.longitude,
           },
+        }, () => {
+          console.log('CURRENT POSITION RETRIEVED', data.coords);
+          console.log('NEWLY SET STATE', this.state.currentPosition);
         });
       });
       this.setupMap();
@@ -418,11 +434,19 @@ class GoogleMap extends React.Component {
     }
   }
 
+  handleNewCoordinateClick = (e) => {
+    const newCoords = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+    this.setState({
+      currentRunCoordinates: [...this.state.currentRunCoordinates, newCoords],
+    });
+    this.polygon.setPath([...this.state.currentRunCoordinates, newCoords]);
+  }
+
   setupMap = () => {
     this.googleMap = this.createGoogleMap();
     // this.marker = this.createMarker();
-    this.createPolygon(testCoordinates);
-    this.googleMap.addListener('click', (e) => console.log(e.latLng.lat()));
+    this.polygon = this.createPolygon(testCoordinates);
+    this.googleMap.addListener('click', this.handleNewCoordinateClick);
   }
 
   createPolygon = (coordinates) => {
@@ -435,6 +459,8 @@ class GoogleMap extends React.Component {
       strokeOpacity: 1.0,
       strokeWeight: 2,
       map: this.googleMap,
+      clickable: false,
+      editable: true,
     });
   }
 
@@ -454,13 +480,26 @@ class GoogleMap extends React.Component {
     map: this.googleMap,
   })
 
+  handleDeleteRun = () => {
+    this.setState({ currentRunCoordinates: [] });
+    this.polygon.setPath([]);
+  }
+
+  handleAddRun = () => {
+
+  }
+
   render() {
     return (
-      <div
-        id="google-map"
-        ref={this.googleMapRef}
-        style={{ width: '500px', height: '300px' }}
-      />
+      <>
+        <button onClick={this.handleDeleteRun} >Delete Run</button>
+        <button onClick={this.handleAddRun} >Add Run</button>
+        <div
+          id="google-map"
+          ref={this.googleMapRef}
+          style={{ width: '500px', height: '300px' }}
+        />
+      </>
     );
   }
 }
@@ -468,14 +507,6 @@ class GoogleMap extends React.Component {
 const mapStateToProps = (state) => ({
   runs: state.runs,
 });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchRuns: (authToken) => dispatch(runsActions.fetchRuns(authToken)),
-//   addRuns: (data, authToken) => dispatch(runsActions.addRuns(data, authToken)),
-//   deleteRuns: (id, authToken) => dispatch(runsActions.deleteRuns(id, authToken)),
-// });
-
-// export default GoogleMap;
 
 export default connect(mapStateToProps)(GoogleMap);
 
