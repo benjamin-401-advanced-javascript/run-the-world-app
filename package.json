@@ -1,29 +1,45 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject",
-    "lint": "eslint ./ --ext .js,.jsx --fix"
-  },
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "expo": "^35.0.0",
-    "react": "16.10.1",
-    "react-dom": "16.10.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-    "react-native-web": "^0.11.7"
+    "jsonwebtoken": "^8.5.1",
+    "polygon-tools": "^0.4.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "react-scripts": "3.2.0",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --ext .js,.jsx --fix"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "babel-preset-expo": "^7.0.0",
-    "eslint": "^6.5.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint-plugin-jest": "^22.17.0",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-native": "^3.7.0"
-  },
-  "private": true
+    "eslint-plugin-react": "^7.16.0"
+  }
 }
