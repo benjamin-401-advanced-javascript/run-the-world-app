@@ -31,7 +31,7 @@ const Runs = (props) => {
 
   function handleRunDelete(e, id) {
     console.log('Run component delete', id);
-    props.deleteRuns(id);
+    props.deleteRuns(id, context.token);
   }
 
   function handleGetCurrentLocation(e) {

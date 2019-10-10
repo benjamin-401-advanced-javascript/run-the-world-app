@@ -1,40 +1,28 @@
 {
-  "name": "front",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "polygon-tools": "^0.4.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "react-scripts": "3.2.0",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watchAll --verbose --coverage",
-    "lint": "eslint ./src --ext .js,.jsx --fix",
-    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --ext .js,.jsx --fix"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "jsonwebtoken": "^8.5.1",
-    "node-sass": "^4.12.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.10.1",
-    "react-cookies": "^0.1.1",
-    "react-dom": "^16.10.1",
-    "react-redux": "^7.1.1",
-    "react-scripts": "^3.1.2",
-    "redux": "^4.0.4"
-  },
-  "devDependencies": {
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-jest": "^22.17.0",
-    "eslint-plugin-react": "^7.15.1",
-    "jest": "^24.9.0",
-    "jsdoc": "^3.6.3",
-    "react-test-renderer": "^16.10.2",
-    "redux-devtools-extension": "^2.13.8"
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -47,5 +35,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-react": "^7.16.0"
   }
 }

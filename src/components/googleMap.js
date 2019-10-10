@@ -1,7 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { polygon } from 'polygon-tools';
 
+const POLYGON = [
+  [0, 100],
+  [400, 150],
+  [400, 400],
+  [0, 400]
+];
+const HOLE2 = [
+  [200, 250],
+  [300, 250],
+  [220, 270],
+  [200, 270]
+];
+const HOLE = [
+  [50, 50],
+  [150, 50],
+  [150, 450],
+  [250, 450],
+  [250, 200],
+  [350, 100],
+  [350, 450],
+  [50, 450]
+]
+let triangles = polygon.subtract(HOLE2, POLYGON);
+console.log('triangles', triangles);
+
+const helperCoordsConverter = (coordsArr) => {
+  const resultArr = [];
+  if (coordsArr[0].lat) {
+    // coords are stored as objects
+    coordsArr.forEach(element => {
+      resultArr.push([element.lat, element.lng])
+    });
+  } else {
+    // coords are stored as arrays   
+    coordsArr.forEach(element => {
+      resultArr.push({ lat: element[0], lng: element[1] })
+    });
+  }
+  console.log(resultArr);
+  return resultArr;
+}
+
+
+
+// ==============================================
 const googleMapStyle = [
   {
     featureType: 'all',
@@ -367,6 +413,7 @@ const googleMapStyle = [
     ],
   },
 ];
+
 const testCoordinates = [
   { lat: 47.605, lng: -122.351 },
   { lat: 47.634, lng: -122.380 },
@@ -395,7 +442,7 @@ class GoogleMap extends React.Component {
     this.state = {
       currentPosition: { lat: 47.606209, lng: -122.332069 },
       currentRunCoordinates: [],
-      currentMapPolygon: {},
+      territories: [],
     };
   }
 
@@ -424,13 +471,21 @@ class GoogleMap extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState
-      && (prevState.currentPosition !== this.state.currentPosition)) {
-      console.log('CURRENT LOCATION UPDATED', this.googleMap);
-      this.googleMap.panTo({
-        lat: this.state.currentPosition.lat,
-        lng: this.state.currentPosition.lng,
-      });
+    if (prevState) {
+      // if current position gets updated update the google map center as well
+      if (prevState.currentPosition !== this.state.currentPosition) {
+        console.log('CURRENT LOCATION UPDATED', this.googleMap);
+        this.googleMap.panTo({
+          lat: this.state.currentPosition.lat,
+          lng: this.state.currentPosition.lng,
+        });
+      }
+
+      // if territories gets updated them update google map
+      if (prevState.territories !== this.state.territories) {
+
+      }
+
     }
   }
 
@@ -460,7 +515,7 @@ class GoogleMap extends React.Component {
       strokeWeight: 2,
       map: this.googleMap,
       clickable: false,
-      editable: true,
+      // editable: true,
     });
   }
 
@@ -486,6 +541,10 @@ class GoogleMap extends React.Component {
   }
 
   handleAddRun = () => {
+    const googlePolygon = this.createPolygon(this.state.currentRunCoordinates)
+    let newTerritories = [...this.state.territories, googlePolygon];
+    this.setState({ territories: newTerritories, currentRunCoordinates: [] });
+    this.polygon.setPath([]);
 
   }
 
@@ -497,7 +556,7 @@ class GoogleMap extends React.Component {
         <div
           id="google-map"
           ref={this.googleMapRef}
-          style={{ width: '500px', height: '300px' }}
+          style={{ width: '700px', height: '400px' }}
         />
       </>
     );

@@ -1,6 +1,5 @@
 {
   "extends": [
-    "airbnb-base",
     "plugin:jest/recommended",
     "plugin:react/recommended"
   ],
@@ -24,12 +23,6 @@
     "arrow-body-style": "off",
     "class-methods-use-this": "off",
     "global-require": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
     "linebreak-style": "off",
     "no-multi-assign": "off",
     "no-param-reassign": [
