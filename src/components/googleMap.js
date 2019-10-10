@@ -542,6 +542,7 @@ class GoogleMap extends React.Component {
 
   handleAddRun = () => {
     const googlePolygon = this.createPolygon(this.state.currentRunCoordinates)
+    googlePolygon.setOptions({ strokeWeight: 1.0, fillColor: '#4BDF3F', strokeColor: '#4BDF3F', });
     let newTerritories = [...this.state.territories, googlePolygon];
     this.setState({ territories: newTerritories, currentRunCoordinates: [] });
     this.polygon.setPath([]);
